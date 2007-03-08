@@ -1,0 +1,30 @@
+--- 
+abstract: ~
+author: David Davis <xantus@cpan.org>
+build_requires: 
+  HTTP::Request: 0
+  IO::Socket::INET: 0
+  LWP::UserAgent: 2.033
+  Test::More: 0.47
+distribution_type: module
+generated_by: Module::Install version 0.65
+license: perl
+meta-spec: 
+  url: http://module-build.sourceforge.net/META-spec-v1.3.html
+  version: 1.3
+name: PITA-POE-SupportServer
+no_index: 
+  directory: 
+    - inc
+    - t
+requires: 
+  Carp: 0
+  MIME::Types: 0
+  POE: 0.38
+  POE::Component::Server::SimpleContent: 1.05
+  POE::Component::Server::SimpleHTTP: 1.19
+  Params::Util: 0.22
+  Process: 0.18
+  URI: 1.35
+  perl: 5.6.0
+version: 0.30
