@@ -1,8 +1,13 @@
+#!/usr/bin/perl
+
 use strict;
-use warnings;
-use Test::More tests => 5;
+BEGIN {
+	$|  = 1;
+	$^W = 1;
+}
+
+use Test::More tests => 4;
 use LWP::UserAgent;
-use HTTP::Request;
 use IO::Socket::INET;
 
 BEGIN {
@@ -30,9 +35,7 @@ my $server = PITA::POE::SupportServer->new(
     http_local_addr => '127.0.0.1',
     http_local_port => $port,
     http_startup_timeout => 10,
-    http_activity_timeout => 10,
     http_mirrors => { '/cpan', '.' },
-    http_result => '/result.xml',
 );
 
 ok( 1, 'Server created' ); # 2
@@ -43,9 +46,7 @@ ok( 1, 'Server prepared' ); # 3
 
 $server->run();
 
-ok( !$server->{exitcode}, 'Server ran and timed out' ); # 4
-
-ok( $server->http_result( '/result.xml' ) eq 'Blah Blah Blah Blah Blah', 'Got result.xml' );
+ok( $server->{exitcode} == 0, 'Server ran and timed out' ); # 4
 
 exit(0);
 
@@ -55,8 +56,5 @@ sub _lwp {
   $ua->timeout(10);
   my $response = $ua->get("http://127.0.0.1:$port/");
   die unless $response->is_success;
-  my $request = HTTP::Request->new( PUT => "http://127.0.0.1:$port/result.xml" );
-  $request->content("Blah Blah Blah Blah Blah");
-  $ua->request( $request );
   return;
 }

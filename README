@@ -11,15 +11,15 @@ SYNOPSIS
                       '-hda',
                       '/var/pita/image/ba312bb13f.img',
                       ],
-              http_local_addr => '127.0.0.1',
-              http_local_port => 80,
-              http_mirrors => {
-                      '/cpan' => '/var/cache/minicpan',
-                      },
-              http_result => '/result.xml',
-              http_startup_timeout => 30,
+              http_local_addr       => '127.0.0.1',
+              http_local_port       => 80,
+              http_startup_timeout  => 30,
               http_activity_timeout => 3600,
               http_shutdown_timeout => 10,
+              http_result           => '/result.xml',
+              http_mirrors          => {
+                      '/cpan' => '/var/cache/minicpan',
+                      },
               ) or die "Failed to create support server";
   
       $server->prepare
@@ -45,7 +45,7 @@ SEE ALSO
     PITA, POE, Process, <http://ali.as/>
 
 COPYRIGHT AND LICENSE
-    Copyright 2006 David Davis. All rights reserved.
+    Copyright 2006 David Davis.
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.

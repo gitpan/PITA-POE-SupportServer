@@ -1,5 +1,11 @@
+#!/usr/bin/perl
+
 use strict;
-use warnings;
+BEGIN {
+	$|  = 1;
+	$^W = 1;
+}
+
 use Test::More tests => 4;
 use LWP::UserAgent;
 use IO::Socket::INET;
@@ -30,6 +36,7 @@ my $server = PITA::POE::SupportServer->new(
     http_local_port => $port,
     http_startup_timeout => 10,
     http_activity_timeout => 10,
+    http_shutdown_timeout => 10,
     http_mirrors => { '/cpan', '.' },
 );
 
@@ -46,6 +53,7 @@ ok( $server->{exitcode}, 'Server ran and timed out' ); # 4
 exit(0);
 
 sub _lwp {
+  local $SIG{TERM} = sub { sleep 60; };
   my $port = shift || return;
   my $ua = LWP::UserAgent->new;
   $ua->timeout(10);

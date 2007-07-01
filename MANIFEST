@@ -16,10 +16,10 @@ META.yml
 README
 t/00_compile.t
 t/01_startup.t
-t/01_startup2.t
-t/02_activity.t
-t/02_activity2.t
-t/03_shutdown.t
-t/04_content.t
+t/02_startup2.t
+t/03_activity.t
+t/04_activity.t
+t/05_shutdown.t
+t/06_content.t
+t/07_nocpan.t
 t/99_author.t
-t/99_pod.t
