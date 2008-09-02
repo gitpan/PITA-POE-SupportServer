@@ -22,4 +22,6 @@ t/04_activity.t
 t/05_shutdown.t
 t/06_content.t
 t/07_nocpan.t
-t/99_author.t
+t/97_meta.t
+t/98_pod.t
+t/99_pmv.t

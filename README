@@ -1,5 +1,5 @@
 NAME
-    PITA::POE::SupportServer
+    PITA::POE::SupportServer - Support server for PITA virtual machines
 
 SYNOPSIS
       use PITA::POE::SupportServer;
@@ -31,9 +31,15 @@ SYNOPSIS
       my $result_file = $server->http_result('/result.xml')
               or die "Guest Image execution failed";
 
-ABSTRACT
 DESCRIPTION
-METHODS
+    TO BE COMPLETED
+
+SUPPORT 
+Bugs should be reported via the CPAN bug tracker at
+    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=PITA-POE-SupportServer>
+
+    For other issues, contact the author.
+
 AUTHORS
     David Davis <xantus@cpan.org>
 
@@ -45,7 +51,7 @@ SEE ALSO
     PITA, POE, Process, <http://ali.as/>
 
 COPYRIGHT AND LICENSE
-    Copyright 2006 David Davis.
+    Copyright 2006 - 2008 David Davis.
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
